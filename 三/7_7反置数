@@ -1,0 +1,21 @@
+#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<math.h>
+int inverse_number(int num) {
+	int result=0;
+	while(num>0){
+		result=result*10+num%10;
+		num/=10;
+	}
+	return result;
+}
+int main() {
+	int a,b,sum;
+	scanf("%d %d", &a, &b);
+	int resulta = inverse_number(a);
+	int resultb = inverse_number(b);
+	sum = inverse_number(resulta + resultb);
+
+	printf("%d", sum);
+	return 0;
+}
