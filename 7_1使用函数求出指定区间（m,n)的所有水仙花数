@@ -1,0 +1,26 @@
+	#define  _CRT_SECURE_NO_WARNINGS
+	#include <stdio.h>
+#include <math.h>
+	long narcissistic(long num) {
+		long sum = 0;
+		long temp = num;
+		int digitcount = (int)log10(num) + 1;
+		while (temp > 0) {
+			sum+=pow((temp%10), digitcount);
+			temp=temp/10;
+		}
+		return (sum == num);
+	}
+	void PrintN(long m, long n) {
+		for (long i = m + 1; i < n; i++) {
+			if (narcissistic(i)) {
+				printf("%ld\n", i);
+			}
+		}
+	}
+	int main() {
+		long m, n;
+		scanf("%ld %ld", &m, &n);
+		PrintN(m, n);
+		return 0;
+	}
