@@ -1,0 +1,12 @@
+#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main() {
+	double k, n, p;
+	scanf("%lf%lf%lf", &k, &n, &p);
+	double sum=k;
+	for (int i = 1; i <= n; i++) {
+		sum=sum*(1+p)+k;
+}
+	printf("%.2lf", sum-(n+1)*k);
+	return 0;
+}
