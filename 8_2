@@ -1,4 +1,26 @@
-
+#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int yushu(int n) {
+	int a=1, b=1, result=0;
+	if(n==1)
+		return 1;
+	else if(n==2)
+		return 1;
+	else {
+		for (int i = 2; i < n; i++) {
+			result = ((a + b) % 10007);
+			a = b;
+			b = result;
+		}
+		return result;
+	}
+}
+int main() {
+	int n;
+	scanf("%d", &n);
+	printf("%d", yushu(n));
+	return 0;
+}
 
 /*
 #define  _CRT_SECURE_NO_WARNINGS
