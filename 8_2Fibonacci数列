@@ -22,7 +22,7 @@ int main() {
 	return 0;
 }
 
-/*
+/*递归的方法，还是上面用的迭代复杂度要小！！！
 #define  _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 int yushu(int n) {
