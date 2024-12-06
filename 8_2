@@ -1,0 +1,29 @@
+
+
+/*
+#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int yushu(int n) {
+	int ans[100000]; 
+	for (int i = 0; i < 100000; i++) {
+		ans[i] = -1;
+	}
+	if (ans[n]!=-1)
+		return ans[n];
+	else {
+		if (n == 1 || n == 2) {
+			ans[n] = 1;
+		}
+		else {
+			ans[n] = (yushu(n - 1) + yushu(n - 2)) % 10007;
+		}
+		return ans[n];
+	}
+}
+int main() {
+	int n;
+	scanf("%d", &n);
+	printf("%d", yushu(n));
+	return 0;
+}
+*/
