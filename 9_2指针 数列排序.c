@@ -15,17 +15,17 @@ int main() {
 }
 void swap(int* x, int* y) {
 	int n = y[0];             //n为x中的数的个数
+	for (int i = 0; i < n; i++) {
+		y[i] = x[i];
+	}
 	for (int i = 0; i < n-1; i++) {
 		int temp;
 		for (int k = 0; k < n - i - 1; k++) {
-			if (x[k] > x[k + 1]) {
-				temp = x[k];
-				x[k] = x[k+1];
-				x[k + 1] = temp;
+			if (y[k] > y[k + 1]) {
+				temp = y[k];
+				y[k] = y[k+1];
+				y[k + 1] = temp;
 			}
 		}
-	}
-	for (int i = 0; i < n; i++) {
-		y[i] = x[i];
 	}
 }
