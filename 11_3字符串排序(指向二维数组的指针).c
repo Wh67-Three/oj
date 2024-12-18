@@ -3,11 +3,9 @@
 #include<string.h>
 void sort(char(*arr)[105]) {
 	char m[105];
-	const char (*brr)[105];
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10 - i - 1; j++) {
-			brr = arr;
-			if (strcmp(*(brr + j),*(brr + j + 1)) > 0) {
+			if (strcmp(*(arr + j),*(arr + j + 1)) > 0) {
 				strcpy(m, arr[j + 1]);
 				strcpy(arr[j + 1], arr[j]);
 				strcpy(arr[j], m);
