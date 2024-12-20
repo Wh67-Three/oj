@@ -46,7 +46,7 @@ void removeword(char arr[][10005], const int n, const char* word) {
 	
 	free(str);
 }
-char m[1005][10005];
+char m[1005][10005];				//或者加static，总之是放在堆空间，要不然main里面的太大了
 int main() {
 	char** prtarr = (char**)malloc(1005 * sizeof(char*));
 	if (prtarr == NULL) {
