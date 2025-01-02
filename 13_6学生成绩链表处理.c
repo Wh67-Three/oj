@@ -6,7 +6,7 @@ int num;/*学号*/
 char name[20];/*姓名*/
 int score;/*成绩*/
 struct stud_node* next;/*指向下个结点的指针*/
-}stud_node;
+}stud_node;//注意用typedef重新定义，别光傻b一样直接复制题中所给的结构体
 
 struct stud_node* createlist(){
 	stud_node* pHead = NULL;
