@@ -1,0 +1,81 @@
+//文本
+#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<stdlib.h>
+int main() {
+	int n;
+	int arr[200];
+	FILE* in, * out;
+	if ((in = fopen("input.txt", "r")) == NULL) {
+		printf("cuowu");
+		exit(0);
+	}
+	if ((out = fopen("output.txt", "w")) == NULL) {
+		printf("cuowu");
+		exit(0);
+	}
+	fscanf(in, "%d", &n);
+	for (int i = 0; i < n; i++) {
+		fscanf(in, "%d", &arr[i]);
+	}
+	for (int i = 0; i < n - 1; i++) {
+		int k = i;
+		for (int j = i + 1; j < n; j++) {
+			if (arr[k] > arr[j]) {
+				k = j;
+			}
+		}
+		if (k != i) {
+			int temp = arr[k];
+			arr[k] = arr[i];
+			arr[i] = temp;
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		fprintf(out, "%d", arr[i]);
+		if (i != n - 1) {
+			fprintf(out, " ");
+		}
+	}
+	fclose(in);
+	fclose(out);
+}
+//二进制
+#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<stdlib.h>
+int main() {
+	int n;
+	int arr[200];
+	FILE* in, * out;
+	if ((in = fopen("input.txt", "rb")) == NULL) {
+		printf("cuowu");
+		exit(0);
+	}
+	if ((out = fopen("output.txt", "wb")) == NULL) {
+		printf("cuowu");
+		exit(0);
+	}
+	fread(&n,sizeof(int),1,in);
+	fread(arr, sizeof(int), n, in);  // 改正：一次性读取整个数组，避免多次调用 fread
+	for (int i = 0; i < n - 1; i++) {
+		int k = i;
+		for (int j = i + 1; j < n; j++) {
+			if (arr[k] > arr[j]) {
+				k = j;
+			}
+		}
+		if (k != i) {
+			int temp = arr[k];
+			arr[k] = arr[i];
+			arr[i] = temp;
+		}
+	}
+	fwrite(arr, sizeof(int), n, out);  // 改正：一次性写入整个数组，避免多次调用 fwrite
+	printf("Sorted array:\n");
+	for (int i = 0; i < n; i++) {
+		printf("%d\n", arr[i]);  // 改正：使用 printf 输出整数值，避免使用 putchar
+	}
+	fclose(in);
+	fclose(out);
+}
